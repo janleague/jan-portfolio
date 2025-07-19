@@ -47,13 +47,13 @@
   </footer>
 
   <script>
-    // GitHub API'den otomatik projeleri çekelim
+    // Let's automatically fetch projects from the GitHub API
     fetch('https://api.github.com/users/janleague/repos')
       .then(res => res.json())
       .then(repos => {
         const container = document.getElementById('projects');
         repos.forEach(repo => {
-          // fork olanları ya da private olanları gösterme
+          // Don't show forked or private repositories
           if(!repo.fork && !repo.private){
             const card = document.createElement('div');
             card.className = 'p-6 rounded-lg bg-gray-800 shadow-2xl rainbow-border hover:scale-105 transition-transform';
